@@ -4,19 +4,18 @@
 
 
 
-<html class="theme-next gemini use-motion" lang="zh-CN,en,default">
+<html lang="zh-CN,en,default">
 <head>
   <meta charset="UTF-8">
-<meta name="generator" content="Hexo 3.9.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/IMG_5399.png?v=7.3.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/IMG_5399.png?v=7.3.0">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/IMG_5399.png?v=7.3.0">
-  <link rel="mask-icon" href="/images/IMG_5399.png?v=7.3.0" color="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/IMG_5399.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/IMG_5399.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/IMG_5399.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/IMG_5399.png?v=7.4.0" color="#222">
 
-<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
@@ -29,18 +28,18 @@
   var CONFIG = {
     root: '/',
     scheme: 'Gemini',
-    version: '7.3.0',
+    version: '7.4.0',
     exturl: false,
     sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
-    save_scroll: true,
     copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
     fancybox: false,
     mediumzoom: false,
     lazyload: false,
     pangu: false,
     algolia: {
-      applicationID: '',
+      appID: '',
       apiKey: '',
       indexName: '',
       hits: {"per_page":10},
@@ -53,7 +52,8 @@
       copy_button: '复制',
       copy_success: '复制成功',
       copy_failure: '复制失败'
-    }
+    },
+    sidebarPadding: 40
   };
 </script>
 
@@ -93,7 +93,6 @@
 
   <noscript>
   <style>
-  .use-motion .motion-element,
   .use-motion .brand,
   .use-motion .menu-item,
   .sidebar-inner,
@@ -102,7 +101,7 @@
   .use-motion .comments,
   .use-motion .post-header,
   .use-motion .post-body,
-  .use-motion .collection-title { opacity: initial; }
+  .use-motion .collection-header { opacity: initial; }
 
   .use-motion .logo,
   .use-motion .site-title,
@@ -119,15 +118,14 @@
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-
-  <div class="container sidebar-position-left">
+  <div class="container use-motion">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
+      <div class="header-inner"><div class="site-brand-container">
   <div class="site-meta">
 
-    <div class="custom-logo-site-title">
+    <div>
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">物电科协</span>
@@ -181,30 +179,34 @@
 
 </nav>
   <div class="site-search">
-    
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
-    </div>
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
   </div>
-  <div id="local-search-result"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
 </div>
+<div id="search-result"></div>
 
+</div>
+<div class="search-pop-overlay"></div>
 
   </div>
 </div>
     </header>
 
     
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
 
 
     <main id="main" class="main">
@@ -212,16 +214,14 @@
         <div class="content-wrap">
             
 
-          <div id="content" class="content page-home">
+          <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <div id="posts" class="posts-expand">
+        <article itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block">
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/31/2019新生赛题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -234,14 +234,11 @@
       <meta itemprop="name" content="物电科协">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2019/08/31/2019新生赛题/" class="post-title-link" itemprop="url">2019新生赛题</a>
+        <h1 class="post-title" itemprop="name headline">
             
-          </h1>
-        
+            <a href="/2019/08/31/2019新生赛题/" class="post-title-link" itemprop="url">2019新生赛题</a>
+          
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -281,13 +278,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
-            <h2 id="硬件组"><a href="#硬件组" class="headerlink" title="硬件组"></a>硬件组</h2><h3 id="MCU"><a href="#MCU" class="headerlink" title="MCU"></a>MCU</h3><p>选择一个你喜欢的MCU，制作一个电压表，量程0-60V。通过数码管或者显示屏之类的装置把电压显示出来。</p>
+          <h2 id="硬件组"><a href="#硬件组" class="headerlink" title="硬件组"></a>硬件组</h2><h3 id="MCU"><a href="#MCU" class="headerlink" title="MCU"></a>MCU</h3><p>选择一个你喜欢的MCU，制作一个电压表，量程0-60V。通过数码管或者显示屏之类的装置把电压显示出来。</p>
 <h3 id="74逻辑"><a href="#74逻辑" class="headerlink" title="74逻辑"></a>74逻辑</h3><p>TODO: </p>
 <h3 id="模拟电路"><a href="#模拟电路" class="headerlink" title="模拟电路"></a>模拟电路</h3><p>TODO: </p>
 <h2 id="软件组"><a href="#软件组" class="headerlink" title="软件组"></a>软件组</h2><p>见<a href="https://oj.phyea.tech/contest/1" target="_blank" rel="noopener">OJ</a></p>
 
-          
         
       
     </div>
@@ -306,13 +301,11 @@
   </article>
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+        <article itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block">
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/11/物电科协介绍/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -325,14 +318,11 @@
       <meta itemprop="name" content="物电科协">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2019/08/11/物电科协介绍/" class="post-title-link" itemprop="url">物电科协</a>
+        <h1 class="post-title" itemprop="name headline">
             
-          </h1>
-        
+            <a href="/2019/08/11/物电科协介绍/" class="post-title-link" itemprop="url">物电科协</a>
+          
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -372,8 +362,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
-            <h2 id="物电科协是什么？"><a href="#物电科协是什么？" class="headerlink" title="物电科协是什么？"></a>物电科协是什么？</h2><p>立足物理学院，于自由的学术交流氛围，培养拥有实践能力，工程思维，合作意识，学术表达能力以及科创潜力的成电学生。</p>
+          <h2 id="物电科协是什么？"><a href="#物电科协是什么？" class="headerlink" title="物电科协是什么？"></a>物电科协是什么？</h2><p>立足物理学院，于自由的学术交流氛围，培养拥有实践能力，工程思维，合作意识，学术表达能力以及科创潜力的成电学生。</p>
 <h2 id="物电科协主要在做什么？"><a href="#物电科协主要在做什么？" class="headerlink" title="物电科协主要在做什么？"></a>物电科协主要在做什么？</h2><p>大部分时候做的都是电子设计相关的，参照电子设计大赛可以分成</p>
 <ul>
 <li><p>电源</p>
@@ -430,7 +419,6 @@
 <p>QQ群：<a href="https://shang.qq.com/wpa/qunwpa?idkey=8703b85faa5d3704a05210c619591038606385135bf378cb04b1d313ef1fc0fb" target="_blank" rel="noopener">点这里</a>或者835860541</p>
 <p>电报群（墙外）：<a href="https://t.me/phyea2019" target="_blank" rel="noopener">点这里</a>或者<a href="https://t.me/phyea" target="_blank" rel="noopener">https://t.me/phyea</a></p>
 
-          
         
       
     </div>
@@ -449,7 +437,7 @@
   </article>
 
     
-  </section>
+  </div>
 
   
 
@@ -468,18 +456,30 @@
     </div>
   </div>
 
-  <aside id="sidebar" class="sidebar">
+  <aside class="sidebar">
     <div class="sidebar-inner">
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
-        <div class="site-overview">
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
 
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image"
       src="/images/IMG_5399.png"
       alt="PEA">
   <p class="site-author-name" itemprop="name">PEA</p>
-  <div class="site-description motion-element" itemprop="description">Phycis Electron Association</div>
+  <div class="site-description" itemprop="description">Phycis Electron Association</div>
 </div>
   <nav class="site-state motion-element">
       <div class="site-state-item site-state-posts">
@@ -495,12 +495,6 @@
       
       <div class="site-state-item site-state-tags">
         
-        
-        
-          
-        
-          
-        
         <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">标签</span>
         
@@ -510,15 +504,7 @@
 
 
 
-        </div>
       </div>
-        <div class="back-to-top motion-element">
-          <i class="fa fa-arrow-up"></i>
-          
-            <span id="scrollpercent"><span>0</span>%</span>
-          
-        </div>
-      
 
     </div>
   </aside>
@@ -538,7 +524,7 @@
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.3.0</div>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.0</div>
 
         
 <div class="busuanzi-count">
@@ -568,30 +554,25 @@
 
 
 
+
+
+
+
         
       </div>
     </footer>
-
-    
-
   </div>
 
   
-  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
 
-<script src="/js/utils.js?v=7.3.0"></script>
-  <script src="/js/motion.js?v=7.3.0"></script>
-
-
-  <script src="/js/affix.js?v=7.3.0"></script>
-  <script src="/js/schemes/pisces.js?v=7.3.0"></script>
-
-
-
-<script src="/js/next-boot.js?v=7.3.0"></script>
-
+<script src="/js/next-boot.js?v=7.4.0"></script>
 
 
 
@@ -604,14 +585,7 @@
 
 
 
-
-
-
-
-
-
-
-  <script src="/js/local-search.js?v=7.3.0"></script>
+  <script src="/js/local-search.js?v=7.4.0"></script>
 
 
 
@@ -632,9 +606,6 @@
 
   
 
-
-  
-    
 
 </body>
 </html>
